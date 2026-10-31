@@ -38,7 +38,7 @@ function updateEmployee(){
 
     let index = findIndex(s => s.id === id)
 
-    if(index === -1){
+    if(index !== -1){
         employees.age = prompt("Nhập tuổi mới:")
         employees.experienceYears = prompt("Nhập số năm kinh nghiệm mới:")
     }
@@ -51,7 +51,7 @@ function deleteEmployee(){
 
     let index = findIndex(s => s.id === id)
 
-    if(index === -1){
+    if(index !== -1){
         employees.splice(index, 1)
     }
 
@@ -59,9 +59,8 @@ function deleteEmployee(){
 }
 
 function findEmployee(){}
-
+let choice;
 do {
-    let choice
     console.log("==================================================")
     console.log(" HỆ THỐNG QUẢN LÝ NHÂN VIÊN CÔNG TY SKYTECH")
     console.log("==================================================")
@@ -72,8 +71,8 @@ do {
     console.log("5. Tìm kiếm nhân viên theo phòng ban")
     console.log("0. Thoát chương trình")
     console.log("==================================================")
-    choice = prompt("Nhập lựa chọn của bạn (0-5):")
-        switch (choice) {
+    choice = Number(prompt("Nhập lựa chọn của bạn (0-5):"))
+    switch (choice) {
         case 1:
             displayEmployees(employees)
             break
@@ -95,4 +94,4 @@ do {
         default:
             console.log("Lựa chọn không hợp lệ!")
     }
-}while(choice === 0)
+}while(choice !== 0)
